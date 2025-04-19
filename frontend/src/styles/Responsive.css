@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+    .card {
+      width: 100%;
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 768px) {
+    .product-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
