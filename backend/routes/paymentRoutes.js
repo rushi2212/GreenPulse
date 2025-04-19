@@ -10,21 +10,23 @@ const razorpay = new Razorpay({
 
 // Route to create an order
 router.post("/order", async (req, res) => {
+  console.log(req.body);
   const { amount } = req.body;
 
   try {
     const options = {
-      amount: amount, // Amount in paise (1 INR = 100 paise)
+      amount: Math.round(amount), // Convert float INR to integer paise
       currency: "INR",
       receipt: crypto.randomBytes(10).toString("hex"),
     };
 
     const order = await razorpay.orders.create(options);
-    res.json({order});
+    res.json({ order });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: "Error creating Razorpay order" });
-
+    res
+      .status(500)
+      .json({ success: false, message: "Error creating Razorpay order" });
   }
 });
 
@@ -43,7 +45,9 @@ router.post("/verify", (req, res) => {
     // Process the order (e.g., update order status in the database)
     res.json({ success: true, message: "Payment Verified" });
   } else {
-    res.status(400).json({ success: false, message: "Payment verification failed" });
+    res
+      .status(400)
+      .json({ success: false, message: "Payment verification failed" });
   }
 });
 

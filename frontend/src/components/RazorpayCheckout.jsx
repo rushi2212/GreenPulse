@@ -1,12 +1,10 @@
 import React from "react";
-//import { useNavigate } from "react-router-dom";
+import { createOrder, updatePaymentStatus } from "../services/api"; // Make sure this path is correct
 
-
-const RazorpayCheckout = ({ cartItems, totalAmount ,fetchCart}) => {
-  //const navigate = useNavigate(); 
+const RazorpayCheckout = ({ cartItems, totalAmount, fetchCart }) => {
   const handlePayment = async () => {
     try {
-      const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
+      const token = localStorage.getItem("token");
 
       const res = await fetch("http://localhost:5000/api/payment/order", {
         method: "POST",
@@ -15,7 +13,7 @@ const RazorpayCheckout = ({ cartItems, totalAmount ,fetchCart}) => {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          amount: totalAmount * 100, // Amount in paise
+          amount: totalAmount * 100,
           items: cartItems.items.map((item) => ({
             productId: item.productId._id,
             name: item.productId.name,
@@ -34,7 +32,7 @@ const RazorpayCheckout = ({ cartItems, totalAmount ,fetchCart}) => {
       }
 
       const options = {
-        key: "rzp_test_zTR8e0CVAFaw54", // Replace with your actual key
+        key: "rzp_test_zTR8e0CVAFaw54",
         amount: data.order.amount,
         currency: "INR",
         name: "GreenCart",
@@ -45,7 +43,6 @@ const RazorpayCheckout = ({ cartItems, totalAmount ,fetchCart}) => {
           console.log("Razorpay Response:", response);
 
           try {
-            // Verify payment
             const verifyRes = await fetch("http://localhost:5000/api/payment/verify", {
               method: "POST",
               headers: {
@@ -64,6 +61,27 @@ const RazorpayCheckout = ({ cartItems, totalAmount ,fetchCart}) => {
             if (verifyData.success) {
               alert("Payment verified!");
 
+              // ✅ Step 1: Create order
+              const createdOrder = await createOrder({
+                products: cartItems.items.map((item) => ({
+                  productId: item.productId._id,
+                  quantity: item.quantity,
+                })),
+                totalAmount,
+                totalCarbonEmission: cartItems.items.reduce(
+                  (acc, item) => acc + item.productId.carbonEmission * item.quantity,
+                  0
+                ),
+              });
+
+              // ✅ Step 2: Update payment status
+              if (createdOrder && createdOrder._id) {
+                console.log("Order ID for status update:", createdOrder._id);
+
+                await updatePaymentStatus(createdOrder._id, "completed", token);
+              }
+
+              // ✅ Step 3: Clear cart
               await fetch("http://localhost:5000/api/cart/clear", {
                 method: "DELETE",
                 headers: {
@@ -71,14 +89,15 @@ const RazorpayCheckout = ({ cartItems, totalAmount ,fetchCart}) => {
                 },
               });
 
+              // ✅ Step 4: Refresh cart
               if (fetchCart) {
-                await fetchCart(); // ✅ Refresh cart after clearing
+                await fetchCart();
               }
             } else {
               alert("Payment verification failed!");
             }
           } catch (err) {
-            console.error("Error verifying payment or clearing cart:", err);
+            console.error("Error verifying payment or updating order:", err);
           }
         },
         prefill: {

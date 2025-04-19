@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import LoginPage from './pages/LoginPage'
 import './App.css';
 import ProductDetails from './pages/ProductDetails';
+import Register from './pages/Register';
 
 function App() {
 const  cartItems = [] ;
@@ -26,6 +27,7 @@ const  cartItems = [] ;
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/login" element={<LoginPage/>} />
+          <Route path="/register" element={<Register/>} />
           
           
 

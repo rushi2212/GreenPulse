@@ -51,7 +51,7 @@ const getCart = async (req, res) => {
     const cart = await Cart.findOne({ userId }).populate("items.productId");
 
     if (!cart) {
-      return res.status(404).json({ message: "Cart not found" });
+      return res.status(200).json({ message: "Cart is empty" });
     }
 
     res.json(cart);
@@ -151,7 +151,9 @@ const clearCart = async (req, res) => {
     cart.items = [];
     await cart.save();
 
-    res.status(200).json({ success: true, message: "Cart cleared successfully." });
+    res
+      .status(200)
+      .json({ success: true, message: "Cart cleared successfully." });
   } catch (error) {
     console.error("Error clearing cart:", error);
     res.status(500).json({ success: false, message: "Failed to clear cart." });
@@ -162,5 +164,5 @@ module.exports = {
   getCart,
   addToCart,
   updateCartItem,
-  clearCart
+  clearCart,
 };

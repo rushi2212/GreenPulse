@@ -99,3 +99,26 @@ exports.logoutUser = (req, res) => {
   res.status(200).json({ message: 'Logged out successfully' });
 };
 
+// GET /api/users/profile
+exports.getUserProfile = async (req, res) => {
+  const userId = req.user.userId;
+
+  try {
+    const user = await User.findById(userId).select('-password'); // exclude password
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      carbonFootprint: user.carbonFootprint,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
