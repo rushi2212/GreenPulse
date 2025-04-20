@@ -1,7 +1,7 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
-const API_URL = 'http://localhost:5000/api'; // Replace with your backend URL
+const API_URL = '/api'; // Replace with your backend URL
 
 export const fetchProducts = async () => {
   try {
@@ -76,7 +76,7 @@ export const updateProduct = async (productId, updatedData) => {
 export const fetchCart = async () => {
   const token = localStorage.getItem('token'); 
   console.log(token);// or wherever you're storing it
-  const res = await axios.get('http://localhost:5000/api/cart', {
+  const res = await axios.get('/api/cart', {
     headers: {
       Authorization: `Bearer ${token}`,
     },

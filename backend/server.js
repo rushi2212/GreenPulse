@@ -19,12 +19,7 @@ connectDB();
 const app = express();
 
 app.use(cookieParser());
-app.use(
-  cors({
-    origin: "http://localhost:5173", // Adjust if different in production
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 // API routes

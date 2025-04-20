@@ -14,7 +14,7 @@ const Register = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1);
-  const API_URL = 'http://localhost:5000/api/users/register';
+  const API_URL = '/api/users/register';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
