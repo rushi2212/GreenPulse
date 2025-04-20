@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { fetchProducts } from "../services/api";
 import "./Home.css"; // Import your CSS file for the animated background
+import earthimg from "../public/planet-earth.png"
+import best from "../public/best.png"
 
 const Home = () => {
   // const [products, setProducts] = useState([]);
@@ -120,7 +122,7 @@ const Home = () => {
                     <div className="flex items-center gap-2 text-sm font-medium">
                       <span className="bg-green-100 text-green-600 p-1 rounded-full">
                         <img
-                          src="../../public/best.png"
+                          src={earthimg}
                           alt="Featured eco-friendly product"
                           className="h-6 w-6 rounded-md object-cover"
                         />
@@ -133,7 +135,7 @@ const Home = () => {
                     <div className="flex items-center gap-2 text-sm font-medium">
                       <span className="bg-green-100 text-green-600 p-1 rounded-full">
                         <img
-                          src="../../public/planet-earth.png"
+                          src={best}
                           alt="100% Sustainable Materials"
                           className="h-6 w-6 rounded-md object-cover"
                         />
