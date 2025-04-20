@@ -41,7 +41,7 @@ const AdminDashboard = () => {
       const data = await fetchProducts();
       setProducts(data);
     } catch (error) {
-      showNotification('Failed to load products', 'error');
+      showNotification('Failed to load products', error);
     } finally {
       setLoading(false);
     }
@@ -111,7 +111,7 @@ const AdminDashboard = () => {
         }
       }
     } catch (error) {
-      showNotification(error.message || 'Failed to save product', 'error');
+      showNotification(error.message || 'Failed to save product', error);
     } finally {
       setLoading(false);
     }
@@ -148,7 +148,7 @@ const AdminDashboard = () => {
         setProducts((prev) => prev.filter(product => product._id !== productId));
         showNotification('Product deleted successfully', 'success');
       } catch (error) {
-        showNotification('Failed to delete product', 'error');
+        showNotification('Failed to delete product', error);
       } finally {
         setLoading(false);
       }
