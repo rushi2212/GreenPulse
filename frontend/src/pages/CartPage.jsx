@@ -35,9 +35,9 @@ const CartPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
+    <div className="min-h-screen transition-colors duration-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">Your Shopping Cart</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold  mb-6">Your Shopping Cart</h1>
         
         {isLoading ? (
           <div className="flex justify-center items-center py-16 sm:py-20">
@@ -54,7 +54,7 @@ const CartPage = () => {
             </button>
           </div>
         ) : (
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 sm:p-6">
+          <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6">
             <Cart cartItems={cartItems} fetchCart={refreshCart} />
           </div>
         )}

@@ -31,9 +31,9 @@ const GreenLeaderboard = ({ currentUserId }) => {
     if (rank === 1)
       return <img src="../../public/trophy.png" alt="1st Place" className="h-6 w-6 sm:h-8 sm:w-8" />;
     if (rank === 2)
-      return <img src="../../public/2nd-place.png" alt="2nd Place" className="h-6 w-6 sm:h-8 sm:w-8" />;
+      return <img src="../../public/trophy2.png" alt="2nd Place" className="h-6 w-6 sm:h-8 sm:w-8" />;
     if (rank === 3)
-      return <img src="../../public/3rd-place.png" alt="3rd Place" className="h-6 w-6 sm:h-8 sm:w-8" />;
+      return <img src="../../public/trophy3.png" alt="3rd Place" className="h-6 w-6 sm:h-8 sm:w-8" />;
     return <span className="text-gray-600 font-bold">{rank}</span>;
   };
 
@@ -74,7 +74,7 @@ const GreenLeaderboard = ({ currentUserId }) => {
           {leaderboard.length > 1 && (
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gray-100 flex items-center justify-center mb-1 sm:mb-2 border-2 border-gray-300">
-                <img src="../../public/2nd-place.png" alt="2nd" className="h-6 w-6 sm:h-8 sm:w-8" />
+                <img src="../../public/trophy2.png" alt="2nd" className="h-6 w-6 sm:h-8 sm:w-8" />
               </div>
               <div className="text-center">
                 <p className="font-semibold text-xs sm:text-base truncate max-w-16 sm:max-w-full">{leaderboard[1].name}</p>
@@ -86,7 +86,7 @@ const GreenLeaderboard = ({ currentUserId }) => {
           {leaderboard.length > 0 && (
             <div className="flex flex-col items-center transform scale-110">
               <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-yellow-50 flex items-center justify-center mb-1 sm:mb-2 border-2 border-yellow-300 shadow-md">
-                <img src="/trophy.png" alt="1st" className="h-8 w-8 sm:h-10 sm:w-10" />
+                <img src="../../public/trophy.png" alt="1st" className="h-8 w-8 sm:h-10 sm:w-10" />
               </div>
               <div className="text-center">
                 <p className="font-bold text-sm sm:text-lg truncate max-w-20 sm:max-w-full">{leaderboard[0].name}</p>
@@ -98,7 +98,7 @@ const GreenLeaderboard = ({ currentUserId }) => {
           {leaderboard.length > 2 && (
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-amber-50 flex items-center justify-center mb-1 sm:mb-2 border-2 border-amber-200">
-                <img src="../../public/3rd-place.png" alt="3rd" className="h-6 w-6 sm:h-8 sm:w-8" />
+                <img src="../../public/trophy3.png" alt="3rd" className="h-6 w-6 sm:h-8 sm:w-8" />
               </div>
               <div className="text-center">
                 <p className="font-semibold text-xs sm:text-base truncate max-w-16 sm:max-w-full">{leaderboard[2].name}</p>
