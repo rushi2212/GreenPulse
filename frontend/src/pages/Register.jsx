@@ -105,7 +105,9 @@ const Register = () => {
       <div className="w-full max-w-md bg-white rounded-xl shadow-xl overflow-hidden">
         <div className="bg-green-600 py-3 sm:py-4">
           <div className="text-center px-4">
-            <h2 className="text-lg sm:text-xl font-bold text-white">Create an Account</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-white">
+              Create an Account
+            </h2>
             <p className="text-green-100 text-xs sm:text-sm">
               Join us to track your environmental impact
             </p>
@@ -165,29 +167,28 @@ const Register = () => {
                     Full Name
                   </label>
                   <div className="relative">
-  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-    <svg
-      className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-    >
-      <path
-        fillRule="evenodd"
-        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-        clipRule="evenodd"
-      />
-    </svg>
-  </div>
-  <input
-    type="text"
-    name="name"
-    value={formData.name}
-    onChange={handleChange}
-    className="pl-11 pr-3 w-full py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 text-sm"
-    placeholder="John Doe"
-  />
-</div>
-
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <svg
+                        className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="pl-11 pr-3 w-full py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 text-sm"
+                      placeholder="John Doe"
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -195,26 +196,25 @@ const Register = () => {
                     Email Address
                   </label>
                   <div className="relative">
-  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-    <svg
-      className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-    >
-      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-    </svg>
-  </div>
-  <input
-    type="email"
-    name="email"
-    value={formData.email}
-    onChange={handleChange}
-    className="pl-11 pr-3 w-full py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 text-sm"
-    placeholder="you@example.com"
-  />
-</div>
-
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <svg
+                        className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                      </svg>
+                    </div>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="pl-11 pr-3 w-full py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 text-sm"
+                      placeholder="you@example.com"
+                    />
+                  </div>
                 </div>
 
                 <button
@@ -234,28 +234,28 @@ const Register = () => {
                     Password
                   </label>
                   <div className="relative">
-  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-    <svg
-      className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-    >
-      <path
-        fillRule="evenodd"
-        d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-        clipRule="evenodd"
-      />
-    </svg>
-  </div>
-  <input
-    type="password"
-    name="password"
-    value={formData.password}
-    onChange={handleChange}
-    className="pl-11 pr-3 w-full py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 text-sm"
-    placeholder="••••••••"
-  />
-</div>
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <svg
+                        className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <input
+                      type="password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleChange}
+                      className="pl-11 pr-3 w-full py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 text-sm"
+                      placeholder="••••••••"
+                    />
+                  </div>
 
                   <p className="mt-1 text-xs text-gray-500">
                     Password must be at least 6 characters
@@ -267,29 +267,28 @@ const Register = () => {
                     Confirm Password
                   </label>
                   <div className="relative">
-  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-    <svg
-      className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-    >
-      <path
-        fillRule="evenodd"
-        d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-        clipRule="evenodd"
-      />
-    </svg>
-  </div>
-  <input
-    type="password"
-    name="confirmPassword"
-    value={formData.confirmPassword}
-    onChange={handleChange}
-    className="pl-11 pr-3 w-full py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 text-sm"
-    placeholder="••••••••"
-  />
-</div>
-
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <svg
+                        className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <input
+                      type="password"
+                      name="confirmPassword"
+                      value={formData.confirmPassword}
+                      onChange={handleChange}
+                      className="pl-11 pr-3 w-full py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 text-sm"
+                      placeholder="••••••••"
+                    />
+                  </div>
                 </div>
 
                 <div className="flex space-x-2 sm:space-x-3">

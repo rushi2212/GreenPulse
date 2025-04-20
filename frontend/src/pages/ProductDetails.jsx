@@ -12,7 +12,7 @@ const ProductDetails = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/products');
+        const res = await fetch('/api/products');
         const data = await res.json();
   
         const foundProduct = data.find((item) => item._id === id);
@@ -34,7 +34,7 @@ const ProductDetails = () => {
     try {
       setAddingToCart(true);
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/cart/add`, {
+      const res = await fetch(`/api/cart/add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

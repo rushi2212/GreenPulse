@@ -10,7 +10,7 @@ const RazorpayCheckout = ({ cartItems, totalAmount, fetchCart }) => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch("http://localhost:5000/api/payment/order", {
+      const res = await fetch("/api/payment/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const RazorpayCheckout = ({ cartItems, totalAmount, fetchCart }) => {
 
           try {
             const verifyRes = await fetch(
-              "http://localhost:5000/api/payment/verify",
+              "/api/payment/verify",
               {
                 method: "POST",
                 headers: {
@@ -95,7 +95,7 @@ const RazorpayCheckout = ({ cartItems, totalAmount, fetchCart }) => {
               }
 
               // ✅ Step 3: Clear cart
-              await fetch("http://localhost:5000/api/cart/clear", {
+              await fetch("/api/cart/clear", {
                 method: "DELETE",
                 headers: {
                   Authorization: `Bearer ${token}`,
