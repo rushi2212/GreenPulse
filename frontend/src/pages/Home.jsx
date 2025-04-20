@@ -41,31 +41,37 @@ const Home = () => {
             <div className="absolute inset-0">
               <div className="absolute top-0 right-0 w-72 h-72 bg-amber-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
               <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-100 rounded-full mix-blend-multiply filter blur-xl opacity-60"></div>
-              
+
               {/* Accent patterns */}
               <div className="absolute top-10 left-1/4 w-20 h-20 rounded-full border-4 border-amber-200 opacity-40"></div>
               <div className="absolute bottom-20 right-1/4 w-16 h-16 rounded-full border-4 border-teal-200 opacity-40"></div>
-              
+
               {/* Subtle leaf illustrations */}
               <div className="leaf-light leaf-top-right"></div>
               <div className="leaf-light leaf-bottom-left"></div>
             </div>
-            
+
             <div className="container mx-auto max-w-5xl relative">
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 {/* Left content */}
                 <div className="text-left space-y-6">
-                  <span className="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 rounded-full font-medium text-sm tracking-wide">Eco-friendly living</span>
-                  
+                  <span className="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 rounded-full font-medium text-sm tracking-wide">
+                    Eco-friendly living
+                  </span>
+
                   <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-                    <span className="block text-teal-600">Beautiful Products</span>
+                    <span className="block text-teal-600">
+                      Beautiful Products
+                    </span>
                     <span className="block">For a Sustainable Life</span>
                   </h1>
-                  
+
                   <p className="text-lg text-gray-600 max-w-lg">
-                    Discover our collection of eco-conscious products that help you live more sustainably without compromising on style or quality.
+                    Discover our collection of eco-conscious products that help
+                    you live more sustainably without compromising on style or
+                    quality.
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-4 pt-2">
                     <a
                       href="#featured"
@@ -80,36 +86,58 @@ const Home = () => {
                       Learn Our Story
                     </a>
                   </div>
-                  
+
                   <div className="flex items-center gap-4 pt-4">
                     <div className="flex -space-x-2">
-                      <img src="/img/customer-1.jpg" alt="Customer" className="w-10 h-10 rounded-full border-2 border-white" />
-                      <img src="/img/customer-2.jpg" alt="Customer" className="w-10 h-10 rounded-full border-2 border-white" />
-                      <img src="/img/customer-3.jpg" alt="Customer" className="w-10 h-10 rounded-full border-2 border-white" />
+                      <img
+                        src="/img/customer-1.jpg"
+                        alt="Customer"
+                        className="w-10 h-10 rounded-full border-2 border-white"
+                      />
+                      <img
+                        src="/img/customer-2.jpg"
+                        alt="Customer"
+                        className="w-10 h-10 rounded-full border-2 border-white"
+                      />
+                      <img
+                        src="/img/customer-3.jpg"
+                        alt="Customer"
+                        className="w-10 h-10 rounded-full border-2 border-white"
+                      />
                     </div>
-                    <span className="text-sm text-gray-500">Loved by 1,000+ eco-conscious customers</span>
+                    <span className="text-sm text-gray-500">
+                      Loved by 1,000+ eco-conscious customers
+                    </span>
                   </div>
                 </div>
-                
+
                 {/* Right content - Featured product image */}
                 <div className="hidden md:block relative">
                   <div className="absolute -top-6 -right-6 w-24 h-24 bg-amber-100 rounded-full z-0"></div>
                   <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-teal-100 rounded-full z-0"></div>
-                  
+
                   <div className="bg-white p-4 rounded-lg shadow-xl rotate-2 z-10 relative">
-                    
-                    <img 
-                      src="/img/featured-product.jpg" 
-                      alt="Featured eco-friendly product" 
+                    <img
+                      src="/img/featured-product.jpg"
+                      alt="Featured eco-friendly product"
                       className="w-full h-auto rounded-md object-cover"
                     />
                   </div>
-                  
+
                   <div className="absolute bottom-12 -left-12 bg-white p-3 rounded-lg shadow-lg -rotate-3 z-20">
                     <div className="flex items-center gap-2 text-sm font-medium">
                       <span className="bg-green-100 text-green-600 p-1 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
                         </svg>
                       </span>
                       <span>100% Sustainable Materials</span>
@@ -121,7 +149,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Main Content */}
       <div className="flex-grow">
         <div className="container mx-auto px-4 max-w-7xl">
@@ -197,7 +225,6 @@ const Home = () => {
                 </p>
               </div>
 
-
               <div className="text-center p-6 transform transition-transform hover:scale-105">
                 <div className="bg-teal-100 rounded-full h-20 w-20 flex items-center justify-center mx-auto mb-4">
                   <svg
@@ -251,22 +278,110 @@ const Home = () => {
             </div>
           </div>
 
-
-
-
           {/* Newsletter */}
-          
 
           {/* Footer Section */}
-          <footer className="bg-olive-100 py-8 mt-16 rounded-lg shadow-lg">
-            <div className="container mx-auto text-center">
-              <p className="text-sm text-gray-600">
-                &copy; {new Date().getFullYear()} EcoShop. All rights reserved.
-              </p>
-            </div>
-          </footer>
         </div>
       </div>
+      <footer className="bg-teal-50 text-gray-700 border-t border-teal-100 mt-16 w-full">
+        <div className="w-full px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* About */}
+          <div>
+            <h3 className="text-xl font-semibold text-teal-800 mb-4">
+              EcoGoods
+            </h3>
+            <p className="text-sm">
+              Empowering sustainable living through thoughtfully curated,
+              eco-conscious products. Join us in making a greener planet.
+            </p>
+          </div>
+
+          {/* Links */}
+          <div>
+            <h4 className="text-lg font-semibold text-amber-700 mb-3">
+              Quick Links
+            </h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="/" className="hover:text-teal-600 transition">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="/products" className="hover:text-teal-600 transition">
+                  Shop
+                </a>
+              </li>
+              <li>
+                <a href="/about" className="hover:text-teal-600 transition">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="hover:text-teal-600 transition">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Support */}
+          <div>
+            <h4 className="text-lg font-semibold text-amber-700 mb-3">
+              Support
+            </h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="/faq" className="hover:text-teal-600 transition">
+                  FAQs
+                </a>
+              </li>
+              <li>
+                <a href="/shipping" className="hover:text-teal-600 transition">
+                  Shipping & Returns
+                </a>
+              </li>
+              <li>
+                <a href="/privacy" className="hover:text-teal-600 transition">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="/terms" className="hover:text-teal-600 transition">
+                  Terms of Service
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Newsletter */}
+          <div>
+            <h4 className="text-lg font-semibold text-amber-700 mb-3">
+              Stay in the Loop
+            </h4>
+            <p className="text-sm mb-3">
+              Subscribe to our newsletter for updates and special offers.
+            </p>
+            <form className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+              <input
+                type="email"
+                placeholder="Your email"
+                className="w-full sm:w-auto px-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
+              />
+              <button
+                type="submit"
+                className="px-4 py-2 bg-teal-600 text-white rounded-md text-sm hover:bg-teal-700 transition"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div className="w-full text-center py-6 border-t border-teal-100 text-sm text-gray-500">
+          © {new Date().getFullYear()} EcoGoods. All rights reserved.
+        </div>
+      </footer>
     </div>
   );
 };

@@ -1,5 +1,9 @@
 import React from "react";
-import { createOrder, updatePaymentStatus } from "../services/api"; // Make sure this path is correct
+import {
+  createOrder,
+  updatePaymentStatus,
+  updateUserCarbon,
+} from "../services/api"; // Make sure this path is correct
 
 const RazorpayCheckout = ({ cartItems, totalAmount, fetchCart }) => {
   const handlePayment = async () => {
@@ -43,18 +47,21 @@ const RazorpayCheckout = ({ cartItems, totalAmount, fetchCart }) => {
           console.log("Razorpay Response:", response);
 
           try {
-            const verifyRes = await fetch("http://localhost:5000/api/payment/verify", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-              body: JSON.stringify({
-                order_id: data.order.id,
-                payment_id: response.razorpay_payment_id,
-                signature: response.razorpay_signature,
-              }),
-            });
+            const verifyRes = await fetch(
+              "http://localhost:5000/api/payment/verify",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                  order_id: data.order.id,
+                  payment_id: response.razorpay_payment_id,
+                  signature: response.razorpay_signature,
+                }),
+              }
+            );
 
             const verifyData = await verifyRes.json();
 
@@ -69,7 +76,8 @@ const RazorpayCheckout = ({ cartItems, totalAmount, fetchCart }) => {
                 })),
                 totalAmount,
                 totalCarbonEmission: cartItems.items.reduce(
-                  (acc, item) => acc + item.productId.carbonEmission * item.quantity,
+                  (acc, item) =>
+                    acc + item.productId.carbonEmission * item.quantity,
                   0
                 ),
               });
@@ -79,7 +87,18 @@ const RazorpayCheckout = ({ cartItems, totalAmount, fetchCart }) => {
                 console.log("Order ID for status update:", createdOrder._id);
 
                 await updatePaymentStatus(createdOrder._id, "completed", token);
+                await updateUserCarbon(
+                  createdOrder.userId,
+                  createdOrder.totalCarbonEmission,
+                  token
+                );
               }
+
+              // if (createdOrder && createdOrder._id) {
+              //   console.log("Order ID for status update:", createdOrder._id);
+
+              //   await updateUserCarbon(createdOrder._id, createdOrder.totalCarbonEmission, token);
+              // }
 
               // ✅ Step 3: Clear cart
               await fetch("http://localhost:5000/api/cart/clear", {

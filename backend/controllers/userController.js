@@ -122,3 +122,38 @@ exports.getUserProfile = async (req, res) => {
   }
 };
 
+// PATCH /api/users/update
+exports.updateCarbonEmission = async (req, res) => {
+  const { userId, carbonEmission } = req.body;
+console.log(userId);
+console.log(carbonEmission);
+  try {
+    const user = await User.findById({_id: userId});
+    console.log(user);
+
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    // Add the new emission to the existing one
+    user.carbonFootprint += carbonEmission;
+    await user.save();
+
+    res.status(200).json({
+      message: "Carbon emission updated successfully",
+      carbonFootprint: user.carbonFootprint,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Error updating carbon", error: error.message });
+  }
+};
+
+exports.getGreenLeaderboard = async (req, res) => {
+  try {
+    const users = await User.find({ isAdmin: false })
+      .select('name carbonFootprint')
+      .sort({ carbonFootprint: -1 }); // or -1 for descending
+
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to fetch leaderboard' });
+  }
+};

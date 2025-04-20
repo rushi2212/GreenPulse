@@ -14,6 +14,54 @@ export const fetchProducts = async () => {
   }
 };
 
+export const addProduct = async (productData) => {
+  try {
+    const token = localStorage.getItem('token'); // Ensure token is stored after login
+    const response = await axios.post(`${API_URL}/admin/add-product`, productData, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`, // Include token here
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Add product error:', error);
+    return null;
+  }
+};
+
+export const deleteProduct = async (productId) => {
+  try {
+    const token = localStorage.getItem('token');
+    const response = await axios.delete(`${API_URL}/admin/delete-product/${productId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Delete product error:', error);
+    return null;
+  }
+};
+
+export const updateProduct = async (productId, updatedData) => {
+  try {
+    const token = localStorage.getItem('token');
+    const response = await axios.put(`${API_URL}/admin/update-product/${productId}`, updatedData, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Update product error:', error);
+    return null;
+  }
+};
+
+
 // export const fetchCart = async () => {
 //   try {
 //     const response = await axios.get(`${API_URL}/cart`);
@@ -96,7 +144,7 @@ export const updatePaymentStatus = async (orderId, status , token) => {
 
   try {
     const response = await axios.patch(
-      `${API_URL}/order  /payment-status`,
+      `${API_URL}/orders/payment-status`,
       { orderId, status },
       {
         headers: {
@@ -113,3 +161,34 @@ export const updatePaymentStatus = async (orderId, status , token) => {
   }
 };
 
+export const updateUserCarbon = async (userId, carbonEmission, token) => {
+  console.log("api "+userId)
+  console.log("api "+carbonEmission)
+  try {
+    const response = await axios.patch(
+      `${API_URL}/users/update`,
+      { userId, carbonEmission },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error("Failed to update carbon emission:", error);
+    throw error;
+  }
+};
+
+export const fetchLeaderboard = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/users/leaderboard`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching leaderboard:", error);
+    return [];
+  }
+};
