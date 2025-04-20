@@ -94,12 +94,6 @@ const RazorpayCheckout = ({ cartItems, totalAmount, fetchCart }) => {
                 );
               }
 
-              // if (createdOrder && createdOrder._id) {
-              //   console.log("Order ID for status update:", createdOrder._id);
-
-              //   await updateUserCarbon(createdOrder._id, createdOrder.totalCarbonEmission, token);
-              // }
-
               // ✅ Step 3: Clear cart
               await fetch("http://localhost:5000/api/cart/clear", {
                 method: "DELETE",
@@ -124,7 +118,7 @@ const RazorpayCheckout = ({ cartItems, totalAmount, fetchCart }) => {
           email: "email@example.com",
         },
         theme: {
-          color: "#3399cc",
+          color: "#10B981", // Changed to teal-500 to match GreenCart eco-friendly theme
         },
       };
 
@@ -136,12 +130,32 @@ const RazorpayCheckout = ({ cartItems, totalAmount, fetchCart }) => {
   };
 
   return (
-    <button
-      className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors"
-      onClick={handlePayment}
-    >
-      Proceed to Checkout
-    </button>
+    <div className="w-full mt-4 md:mt-6 flex flex-col space-y-3">
+      <button
+        className="w-full bg-teal-600 text-white text-sm sm:text-base font-medium py-2 sm:py-3 px-4 rounded-md sm:rounded-lg hover:bg-teal-700 active:bg-teal-800 transition-colors duration-200 transform hover:-translate-y-0.5 shadow-md hover:shadow-lg flex items-center justify-center"
+        onClick={handlePayment}
+        aria-label="Proceed to Checkout"
+      >
+        <svg 
+          className="w-4 h-4 sm:w-5 sm:h-5 mr-2" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24" 
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth={2} 
+            d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" 
+          />
+        </svg>
+        Proceed to Checkout
+      </button>
+      <p className="text-xs text-center text-gray-500 px-2">
+        Secure payment powered by Razorpay
+      </p>
+    </div>
   );
 };
 

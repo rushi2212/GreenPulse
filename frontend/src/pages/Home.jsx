@@ -90,17 +90,17 @@ const Home = () => {
                   <div className="flex items-center gap-4 pt-4">
                     <div className="flex -space-x-2">
                       <img
-                        src="/img/customer-1.jpg"
+                        src="https://cdn3.vectorstock.com/i/1000x1000/11/27/cartoon-businessman-in-suit-portrait-in-circle-vector-17571127.jpg"
                         alt="Customer"
                         className="w-10 h-10 rounded-full border-2 border-white"
                       />
                       <img
-                        src="/img/customer-2.jpg"
+                        src="https://www.trader-dale.com/wp-content/uploads/2020/11/Dale-portrait-no-background.png"
                         alt="Customer"
                         className="w-10 h-10 rounded-full border-2 border-white"
                       />
                       <img
-                        src="/img/customer-3.jpg"
+                        src="https://cdn3.vectorstock.com/i/1000x1000/30/37/man-businessman-cartoon-character-icon-vector-10183037.jpg"
                         alt="Customer"
                         className="w-10 h-10 rounded-full border-2 border-white"
                       />
@@ -112,33 +112,31 @@ const Home = () => {
                 </div>
 
                 {/* Right content - Featured product image */}
-                <div className="hidden md:block relative">
+                <div className="hidden md:block relative ml-6">
                   <div className="absolute -top-6 -right-6 w-24 h-24 bg-amber-100 rounded-full z-0"></div>
                   <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-teal-100 rounded-full z-0"></div>
 
                   <div className="bg-white p-4 rounded-lg shadow-xl rotate-2 z-10 relative">
-                    <img
-                      src="/img/featured-product.jpg"
-                      alt="Featured eco-friendly product"
-                      className="w-full h-auto rounded-md object-cover"
-                    />
+                    <div className="flex items-center gap-2 text-sm font-medium">
+                      <span className="bg-green-100 text-green-600 p-1 rounded-full">
+                        <img
+                          src="../../public/best.png"
+                          alt="Featured eco-friendly product"
+                          className="h-6 w-6 rounded-md object-cover"
+                        />
+                      </span>
+                      <span>Featured eco-friendly product</span>
+                    </div>
                   </div>
 
                   <div className="absolute bottom-12 -left-12 bg-white p-3 rounded-lg shadow-lg -rotate-3 z-20">
                     <div className="flex items-center gap-2 text-sm font-medium">
                       <span className="bg-green-100 text-green-600 p-1 rounded-full">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <img
+                          src="../../public/planet-earth.png"
+                          alt="100% Sustainable Materials"
+                          className="h-6 w-6 rounded-md object-cover"
+                        />
                       </span>
                       <span>100% Sustainable Materials</span>
                     </div>
@@ -283,7 +281,7 @@ const Home = () => {
           {/* Footer Section */}
         </div>
       </div>
-      <footer className="bg-teal-50 text-gray-700 border-t border-teal-100 mt-16 w-full">
+      <footer className="bg-teal-50 text-gray-700 border-t border-teal-100 w-full">
         <div className="w-full px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About */}
           <div>
@@ -356,13 +354,13 @@ const Home = () => {
 
           {/* Newsletter */}
           <div>
-            <h4 className="text-lg font-semibold text-amber-700 mb-3">
+            <h4 className="text-lg font-semibold text-amber-700 mb-3 mr-5">
               Stay in the Loop
             </h4>
             <p className="text-sm mb-3">
               Subscribe to our newsletter for updates and special offers.
             </p>
-            <form className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+            <form className="flex flex-col  items-start sm:items-center gap-2">
               <input
                 type="email"
                 placeholder="Your email"

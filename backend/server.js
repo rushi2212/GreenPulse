@@ -19,12 +19,22 @@ connectDB();
 const app = express();
 
 app.use(cookieParser());
-app.use(
-  cors({
-    origin: "https://greenpulse-45fd.onrender.com",
-    credentials: true,
-  })
-);
+// const allowedOrigins = [
+//   'http://localhost:5173',
+//   'https://greenpulse-45fd.onrender.com'
+// ];
+
+// ({
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true // if you're using cookies/auth
+// })
+app.use(cors());
 app.use(express.json());
 
 // API routes
